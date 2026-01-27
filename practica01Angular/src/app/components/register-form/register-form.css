@@ -1,0 +1,88 @@
+/* Contenedor principal del formulario */
+.form-page {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background: linear-gradient(145deg, #1a1a2e, #162447);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Títulos y etiquetas */
+label {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  display: block;
+  color: #ffd369;
+}
+
+/* Cada grupo de input */
+fieldset {
+  border: none;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs */
+input {
+  padding: 0.6rem 0.9rem;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+  background: #0f0f23;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input:focus {
+  box-shadow: 0 0 0 2px #ffd369;
+  background: #1f1c2c;
+}
+
+/* Mensajes de error */
+.field-error {
+  color: #ff6b6b;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Botón de submit */
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background: #ffd369;
+  color: #1a1a2e;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(255, 214, 105, 0.5);
+}
+
+/* Responsive: centrado y pequeño margen en móvil */
+@media (max-width: 600px) {
+  .form-page {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}

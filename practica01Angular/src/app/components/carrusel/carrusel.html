@@ -1,0 +1,13 @@
+<div class="carrusel-container">
+  <button class="arrow left" (click)="prevSlide()">&#10094;</button>
+
+  <div class="slides">
+    <div class="slide" *ngFor="let juego of juegos; let i = index"
+         [class.active]="i === currentIndex">
+      <img [src]="juego.portada" [alt]="juego.nombre">
+      <p class="title">{{ juego.nombre }}</p>
+    </div>
+  </div>
+
+  <button class="arrow right" (click)="nextSlide()">&#10095;</button>
+</div>

@@ -1,0 +1,16 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e, #4b0082); 
+  color: #fff;
+  min-height: 100vh;
+}
+
+
+nav, .carrusel-container, main {
+  position: relative;
+  z-index: 1;
+}
