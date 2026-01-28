@@ -21,7 +21,7 @@ export class Lista {
     if (!this.newGame.trim()) return;
 
     this.games.push({ name: this.newGame.trim(), platino: false });
-    this.newGame = ''; // limpia el input
+    this.newGame = ''; 
   }
 
   removeGame(index: number) {

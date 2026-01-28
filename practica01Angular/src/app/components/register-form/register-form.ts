@@ -37,7 +37,8 @@ export class Registro {
     );
   }
 
-  
+  // Verificamos que las contraseñas sean iguales , en el caso de que 
+  // no lo sean devolverá true.
   passwordsMatchValidator(control: AbstractControl): ValidationErrors | null {
     const group = control as FormGroup;
     const password = group.get('password')?.value;

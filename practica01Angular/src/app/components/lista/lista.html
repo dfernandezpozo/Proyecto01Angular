@@ -1,7 +1,10 @@
 <div class="lista-container">
   <h1>Videojuegos platinados</h1>
 
-  
+  <!-- Revisar el ngModel -->
+  <!-- Hace binding ya que coge el valor de la variable del game (God of war),
+   muestra el nombre del juego y cuándo se le da a la flecha pasa al 
+   nombre del siguiente juego -->
   <form class="add-game-form" (submit)="addGame(); $event.preventDefault()">
     <input
       type="text"
@@ -13,13 +16,13 @@
     <button type="submit">Agregar</button>
   </form>
 
-  
   <div class="games-list" *ngIf="games.length > 0; else emptyList">
     <div class="game-card" *ngFor="let game of games; let i = index">
       <div class="game-info">
         <span class="game-name">{{ game.name }}</span>
 
-        
+        <!-- si game.platino es true se le aplicará la clase achived al span,
+          si es false la clase achived se quita -->
         <span
           class="platino"
           [class.achieved]="game.platino"
@@ -34,7 +37,8 @@
     </div>
   </div>
 
-  
+<!-- Simplemente hace referencia al emptylist del if de arriba -->
+ <!-- El ng-template es un contenedor en angular -->
   <ng-template #emptyList>
     <p class="empty-msg">Ponte las pilas con los platinos</p>
   </ng-template>

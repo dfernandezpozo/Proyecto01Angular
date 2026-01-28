@@ -18,6 +18,8 @@ export class Carrusel {
     { nombre: 'Prince of Persia', portada: '/assets/pop.jpg' },
     { nombre: 'El varitas', portada: '/assets/hl.jpg' },
     { nombre: 'Umamusume', portada: '/assets/umamu.jpg' },
+     { nombre: '4lf0n$0', portada: '/assets/alf.jpg' },
+     { nombre: '4lf0n$02', portada: '/assets/alf2.jpg' },
   ];
 
   currentIndex = 0;
