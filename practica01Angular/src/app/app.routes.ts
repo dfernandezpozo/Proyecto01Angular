@@ -1,11 +1,10 @@
 import { Routes } from '@angular/router';
-
-import { Registro } from './components/register-form/register-form';
-import { ListaJuegos } from '../pages/lista-juegos/lista-juegos';
-import { Carrusel } from './components/carrusel/carrusel';
+import { RegisterPage } from '../pages/register-page/register-page';
+import { Lista } from './components/lista/lista';
+import { HomePage } from '../pages/home-page/home-page';
 export const routes: Routes = [
+    { path: '', component: HomePage }, 
+    { path: 'registro', component: RegisterPage },
+    { path: 'lista', component: Lista },
     
-    { path: 'registro', component: Registro },
-    { path: 'ListaJuegos', component: ListaJuegos },
-    { path: 'Carrusel', component: Carrusel }
 ];

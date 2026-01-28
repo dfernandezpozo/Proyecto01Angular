@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { Nav } from '../nav/nav';
 import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
-  imports: [Nav, ReactiveFormsModule],
+  imports: [ ReactiveFormsModule],
   templateUrl: './register-form.html',
   styleUrls: ['./register-form.css'],
+ 
 })
 export class Registro {
   

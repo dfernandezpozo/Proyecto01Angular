@@ -1,11 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; // Mirar el CommonModule
 @Component({
   selector: 'app-carrusel',
   templateUrl: './carrusel.html',
   styleUrls: ['./carrusel.css'],
   imports:  [CommonModule]
 })
+
+// Código principal carrusel
+
 export class Carrusel {
  
   @Input() juegos = [

@@ -1,0 +1,41 @@
+<div class="lista-container">
+  <h1>Videojuegos platinados</h1>
+
+  
+  <form class="add-game-form" (submit)="addGame(); $event.preventDefault()">
+    <input
+      type="text"
+      placeholder="Nombre del juego"
+      [(ngModel)]="newGame"
+      name="gameName"
+      required
+    />
+    <button type="submit">Agregar</button>
+  </form>
+
+  
+  <div class="games-list" *ngIf="games.length > 0; else emptyList">
+    <div class="game-card" *ngFor="let game of games; let i = index">
+      <div class="game-info">
+        <span class="game-name">{{ game.name }}</span>
+
+        
+        <span
+          class="platino"
+          [class.achieved]="game.platino"
+          (click)="togglePlatino(i)"
+          title="Marcar/Desmarcar Platino"
+        >
+          🏆
+        </span>
+      </div>
+
+      <button class="delete-btn" (click)="removeGame(i)">Eliminar</button>
+    </div>
+  </div>
+
+  
+  <ng-template #emptyList>
+    <p class="empty-msg">Ponte las pilas con los platinos</p>
+  </ng-template>
+</div>
