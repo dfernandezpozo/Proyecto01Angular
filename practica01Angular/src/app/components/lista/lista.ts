@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 interface Game {
@@ -9,7 +8,7 @@ interface Game {
 
 @Component({
   selector: 'app-lista',
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './lista.html',
   styleUrls: ['./lista.css']
 })

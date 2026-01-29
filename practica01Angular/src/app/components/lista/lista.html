@@ -1,7 +1,6 @@
 <div class="lista-container">
   <h1>Videojuegos platinados</h1>
 
-  <!-- Revisar el ngModel -->
   <!-- Hace binding ya que coge el valor de la variable del game (God of war),
    muestra el nombre del juego y cuándo se le da a la flecha pasa al 
    nombre del siguiente juego -->
@@ -16,30 +15,32 @@
     <button type="submit">Agregar</button>
   </form>
 
-  <div class="games-list" *ngIf="games.length > 0; else emptyList">
-    <div class="game-card" *ngFor="let game of games; let i = index">
-      <div class="game-info">
-        <span class="game-name">{{ game.name }}</span>
+  @if (games.length > 0) {
+    <div class="games-list">
+      @for (game of games; track $index; let i = $index) {
+        <div class="game-card">
+          <div class="game-info">
+            <span class="game-name">{{ game.name }}</span>
 
-        <!-- si game.platino es true se le aplicará la clase achived al span,
-          si es false la clase achived se quita -->
-        <span
-          class="platino"
-          [class.achieved]="game.platino"
-          (click)="togglePlatino(i)"
-          title="Marcar/Desmarcar Platino"
-        >
-          🏆
-        </span>
-      </div>
+            <!-- si game.platino es true se le aplicará la clase achived al span,
+              si es false la clase achived se quita -->
+            <span
+              class="platino"
+              [class.achieved]="game.platino"
+              (click)="togglePlatino(i)"
+              title="Marcar/Desmarcar Platino"
+            >
+              🏆
+            </span>
+          </div>
 
-      <button class="delete-btn" (click)="removeGame(i)">Eliminar</button>
+          <button class="delete-btn" (click)="removeGame(i)">Eliminar</button>
+        </div>
+      }
     </div>
-  </div>
-
-<!-- Simplemente hace referencia al emptylist del if de arriba -->
- <!-- El ng-template es un contenedor en angular -->
-  <ng-template #emptyList>
+  } @else {
+    <!-- Simplemente hace referencia al emptylist del if de arriba -->
+    <!-- El ng-template es un contenedor en angular -->
     <p class="empty-msg">Ponte las pilas con los platinos</p>
-  </ng-template>
+  }
 </div>

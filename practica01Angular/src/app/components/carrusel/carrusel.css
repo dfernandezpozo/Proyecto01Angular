@@ -1,96 +1,206 @@
-
 .carrusel-container {
   max-width: 300px;
-  margin: 2rem auto;      
+  margin: 2rem auto;
   overflow: hidden;
-  border-radius: 12px;
-  position: relative;    
-  background: rgba(26, 26, 46, 0.8);
-  z-index: 1;  
-  margin-top: 200px;
+  border-radius: 20px;
+  position: relative;
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8),
+              0 0 30px rgba(0, 217, 255, 0.3);
+  border: 3px solid #0f3460;
+  z-index: 1;
+  margin-top: 120px;
+  transition: all 0.3s ease;
 }
 
+.carrusel-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9),
+              0 0 40px rgba(0, 217, 255, 0.5);
+}
 
 .slides {
-  position: relative; 
-  height: 400px;      
+  position: relative;
+  height: 500px;
 }
 
-
 .slide {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease;
   text-align: center;
   color: #fff;
+  transform: scale(0.95);
 }
-
 
 .slide.active {
   opacity: 1;
   z-index: 2;
+  transform: scale(1);
 }
-
 
 .slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-bottom: 2px solid #ffd369;
-  border-radius: 12px 12px 0 0;
+  border-radius: 17px;
+  filter: brightness(0.85) contrast(1.1);
+  transition: filter 0.3s ease;
 }
 
+.slide:hover img {
+  filter: brightness(1) contrast(1.15);
+}
+
+.slide::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, 
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    transparent 100%);
+  z-index: 1;
+  border-radius: 0 0 17px 17px;
+}
 
 .slide .title {
   position: absolute;
-  bottom: 15px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: #ffd369;
-  text-shadow: 0 0 5px rgba(0,0,0,0.7);
+  color: #00d9ff;
+  text-shadow: 0 0 20px rgba(0, 217, 255, 0.8),
+               0 3px 10px rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  letter-spacing: 1px;
+  padding: 0 20px;
+  animation: title-glow 3s ease-in-out infinite;
 }
 
+@keyframes title-glow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.8),
+                 0 3px 10px rgba(0, 0, 0, 0.9);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(0, 217, 255, 1),
+                 0 0 50px rgba(0, 217, 255, 0.5),
+                 0 3px 10px rgba(0, 0, 0, 0.9);
+  }
+}
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: #ffd369;
-  font-size: 2rem;
-  padding: 0.2rem 0.5rem;
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.2), rgba(0, 153, 204, 0.2));
+  backdrop-filter: blur(10px);
+  border: 2px solid #00d9ff;
+  color: #00d9ff;
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 50%;
   z-index: 3;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 217, 255, 0.3);
 }
 
-.arrow.left { left: 10px; }
-.arrow.right { right: 10px; }
+.arrow.left { 
+  left: 20px; 
+}
+
+.arrow.right { 
+  right: 20px; 
+}
 
 .arrow:hover {
-  background: rgba(0,0,0,0.8);
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.4), rgba(0, 153, 204, 0.4));
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 30px rgba(0, 217, 255, 0.6);
+  border-color: #00ffff;
+  color: #00ffff;
 }
 
+.arrow:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Indicadores de puntos (opcional - añade dots si los tienes en el HTML) */
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid #00d9ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #00d9ff;
+  box-shadow: 0 0 15px rgba(0, 217, 255, 0.8);
+  transform: scale(1.2);
+}
 
 @media (max-width: 600px) {
   .carrusel-container {
-    max-width: 100%;
+    max-width: 95%;
+    margin-top: 80px;
+  }
+
+  .slides {
+    height: 400px;
   }
 
   .slide .title {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    bottom: 20px;
   }
 
   .arrow {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .arrow.left {
+    left: 10px;
+  }
+
+  .arrow.right {
+    right: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .arrow {
+    width: 40px;
+    height: 40px;
     font-size: 1.5rem;
-    padding: 0.1rem 0.3rem;
   }
 }

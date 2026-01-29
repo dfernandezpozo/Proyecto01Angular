@@ -3,29 +3,29 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule, AbstractContro
 
 @Component({
   selector: 'app-registro',
-  imports: [ ReactiveFormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './register-form.html',
   styleUrls: ['./register-form.css'],
- 
 })
 export class Registro {
-  
+
   userForm: FormGroup;
 
-  
   username: FormControl;
   email: FormControl;
   password: FormControl;
   confirmPassword: FormControl;
 
+ 
+  registeredUsers: { username: string; email: string }[] = [];
+
   constructor() {
-   
+
     this.username = new FormControl('', Validators.required);
     this.email = new FormControl('', [Validators.required, Validators.email]);
     this.password = new FormControl('', [Validators.required, Validators.minLength(6)]);
     this.confirmPassword = new FormControl('', Validators.required);
 
-    
     this.userForm = new FormGroup(
       {
         username: this.username,
@@ -33,12 +33,11 @@ export class Registro {
         password: this.password,
         confirmPassword: this.confirmPassword,
       },
-      { validators: this.passwordsMatchValidator } 
+      { validators: this.passwordsMatchValidator }
     );
   }
 
-  // Verificamos que las contraseñas sean iguales , en el caso de que 
-  // no lo sean devolverá true.
+  // Verificamos que las contraseñas sean iguales
   passwordsMatchValidator(control: AbstractControl): ValidationErrors | null {
     const group = control as FormGroup;
     const password = group.get('password')?.value;
@@ -49,11 +48,12 @@ export class Registro {
   
   handleSubmit() {
     if (this.userForm.valid) {
-      console.log('Usuario registrado:', this.userForm.value);
-      
+      const { username, email } = this.userForm.value;
+      this.registeredUsers.push({ username, email });
+      console.log('Usuario registrado:', { username, email });
+
       this.userForm.reset();
     }
   }
 
-  
 }
