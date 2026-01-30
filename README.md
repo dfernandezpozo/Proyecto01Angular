@@ -53,7 +53,7 @@ ng version
 3.  **Editor de código** 
 
 - Visual Studio Code u otro editor compatible con TypeScript y Angular.
-- Una vez este todo instalado probamos el siguiente comando: 
+- Una vez este todo instalado hacemos **cd de la carpeta del proyecto** y probamos el siguiente comando: 
 ```bash
 ng serve -o
 ```
