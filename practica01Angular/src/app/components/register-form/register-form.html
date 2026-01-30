@@ -1,8 +1,10 @@
 <div class="form-page">
 
-  
+ <!-- En todos está eñ display none para que solo se muestre el error cuándo éste
+ se produzca   -->
   <form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
 
+    <!-- Comprobamos el Usuario -->
     <fieldset>
       <label for="username">Nombre de usuario</label>
       <input id="username" type="text" formControlName="username">
@@ -13,6 +15,7 @@
       }
     </fieldset>
 
+    <!-- Verificación del email -->
     <fieldset>
       <label for="email">Correo electrónico</label>
       <input id="email" type="email" formControlName="email">
@@ -22,7 +25,7 @@
         <p class="field-error" style="display:none;"></p>
       }
     </fieldset>
-
+    <!-- Verificación de contraseña -->
     <fieldset>
       <label for="password">Contraseña</label>
       <input id="password" type="password" formControlName="password">
@@ -32,6 +35,10 @@
         <p class="field-error" style="display:none;"></p>
       }
     </fieldset>
+
+    <!-- Para hacer la comprobación de que las dos contraseñas coinciden
+    llama al notMatching para validar , solo serán validas si las dos 
+    son true. -->
 
     <fieldset>
       <label for="confirmPassword">Confirmar contraseña</label>
@@ -46,7 +53,8 @@
     <button type="submit" [disabled]="userForm.invalid">Registrarse</button>
   </form>
 
-  
+<!-- Para que tenga utilidad el formulario de abajo cada usuario registrado 
+se mostrará aquí:   -->
   <div class="users-registered">
     <h2>Usuarios registrados</h2>
 

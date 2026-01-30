@@ -1,3 +1,4 @@
+/* Estilos aplicados a todas las páginas para hacer el fondo */
 body, html {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body, html {
   overflow-x: hidden;
 }
 
-/* Efecto de partículas/estrellas animadas */
+
 body::before {
   content: '';
   position: fixed;
@@ -32,7 +33,7 @@ body::before {
   pointer-events: none;
 }
 
-/* Efecto de brillo sutil en movimiento */
+
 body::after {
   content: '';
   position: fixed;
@@ -70,7 +71,7 @@ body::after {
   }
 }
 
-/* Grid sutil de fondo estilo cyberpunk */
+
 body {
   background-image: 
     linear-gradient(145deg, #0a0e27 0%, #16213e 50%, #1a1a2e 100%),

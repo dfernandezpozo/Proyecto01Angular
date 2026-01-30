@@ -19,6 +19,8 @@ export class Registro {
  
   registeredUsers: { username: string; email: string }[] = [];
 
+  // Indicamos en el constructor los campos que queremos validar y sus
+  //características
   constructor() {
 
     this.username = new FormControl('', Validators.required);
@@ -45,7 +47,7 @@ export class Registro {
     return password === confirm ? null : { notMatching: true };
   }
 
-  
+  // Manejamos el envio del formulario
   handleSubmit() {
     if (this.userForm.valid) {
       const { username, email } = this.userForm.value;

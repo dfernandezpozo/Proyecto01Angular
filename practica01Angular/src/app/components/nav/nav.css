@@ -113,7 +113,7 @@
   opacity: 1;
 }
 
-/* Efecto de pulso en el link activo */
+
 @keyframes pulse-glow {
   0%, 100% {
     box-shadow: 0 0 20px rgba(0, 217, 255, 0.3),

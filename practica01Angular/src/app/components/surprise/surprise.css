@@ -181,7 +181,7 @@
   }
 }
 
-/* Partículas flotantes alrededor de la imagen */
+
 .alfonso-image::after {
   content: '';
   position: absolute;

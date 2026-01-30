@@ -4,7 +4,6 @@ import { EasterEggComponent } from "../../app/components/surprise/surprise";
 
 @Component({
   selector: 'app-home-page',
-  standalone: true,
   imports: [Carrusel, EasterEggComponent],
    templateUrl: './home-page.html',
    

@@ -140,7 +140,7 @@
   transform: translateY(-50%) scale(0.95);
 }
 
-/* Indicadores de puntos (opcional - añade dots si los tienes en el HTML) */
+
 .dots {
   position: absolute;
   bottom: 10px;
